@@ -18,16 +18,20 @@ If you use the dataset or the provided code please cite the following paper:
 }
 ```
 
-## Dataset
-The full dataset is available on https://zenodo.org/record/3459357#.XY4DGB9fhhE.
-It can be automatically downloaded via "./download.sh".
-
 ## Requirements
 
 The code is only tested on Ubuntu 18.04, to perform the same evaluation that is presented in the paper you need
 
-* ffmpeg 4.1.3 (provided in the repository as tar.gz, extract it so that ffmpeg executable is in <REPO>/ffmpeg-4.1.3-amd64-static/ffmpeg)
+* ffmpeg 4.1.3 (provided in the repository as tar.gz)
 * convert tool (part of imagemagick, install via `sudo apt install imagemagick`)
+* wget to download the dataset
+
+On Ubuntu you can just run `./prepare.sh` to install all requirements.
+
+## Dataset
+The full dataset is available on https://zenodo.org/record/3459357#.XY4DGB9fhhE.
+It can be automatically downloaded and extracted via "./download.sh".
+
 
 ## Encoding images
 In the presented paper, all possible quality variants of the raw/png images are processed,
@@ -41,3 +45,11 @@ To encode a given image (or all images of the dataset) you need to run:
 If you want to perform the encoding for all images of a larger dataset please use GNU parallel or similar tools.
 
 Encoding of one high resolution image will take some time.
+
+### Acknowledgements
+
+If you use this software in your research, please include a link to the repository and reference our paper.
+
+## Licence
+Except ffmpeg and other thirdparty software that have their own licence, the remaining software follows the:
+GNU General Public License v3. See LICENSE file in this repository.

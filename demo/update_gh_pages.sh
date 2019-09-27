@@ -12,3 +12,5 @@ git add .
 git commit -m "update of github.io page @ $(date)"
 git push origin gh-pages
 
+cd ..
+rm -rf html_
