@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Evaluation of Intra-coding based image compression -- demo</title>
+
+  <script src="./plotly-latest.min.js"></script>
+  <script src="./jquery-3.3.1.slim.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
+  <script src="./popper.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <style>
+    .imageprev {
+        padding: 0px;
+    }
+    .imageexample {
+        padding-left: 10px;
+    }
+
+    h2 {
+        margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body style="padding: 45px 0 0 0;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Evaluation of Intra-coding based image compression -- demo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <!--
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="play_pause_video()" id="control_button">pause</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="$('#stats').toggle();" >stats</a>
+            </li>
+            -->
+            <li class="nav-item">
+              <a class="nav-link" href="#"  data-toggle="modal" data-target="#myModal">about</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">About - this demo</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+
+            <p>Developed at TU Ilmenau 2019.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--Main content of page-->
+    <section id="main-content" class="container">
+      <div class="jumbotron">
+        <h1>About</h1>
+        <p>This demo gives an overview of the evaluation of different intra-frame based video encoding algorithms and their performance in case of image compression presented in a paper at EUVIP 2019 (Roma; Italy).</p>
+        <p>You can find the full implementation of the encoding experiment that is descirbed in the paper in the following git repository <a href="demo">LINK</a>.</p>
+
+        In the following cropped images, different low quality settings are shown for several codecs (AV1, H.264, H.265, VP9, JPEG), filesizes and PSNR values refer to the full images.
+        <div class="row justify-content-md-center" id="example">
+          <div class="col-md-2 imageexample" > Source (83 MB), <br><br> <img src="example/ref.jpg" alt="reference image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" > AV1 (11 KB), PSNR=45.87<img src="example/av1.jpg" alt="av1 image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" > H.264 (19 KB), PSNR=39.74<img src="example/h264.jpg" alt="h264 image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" > H.265 (17 KB), PSNR=42.72<img src="example/h265.jpg" alt="h265 image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" > VP9 (15 KB), PSNR=45.36 <img src="example/vp9.jpg" alt="vp9 image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" > JPEG (110 KB), PSNR=32.26<img src="example/jpg.jpg" alt="jpg image" style="width:100%;"/></div>
+        </div>
+        <h2>Abstract</h2>
+        Considering modern cameras, increasing image resolutions and thousands of images uploaded to sharing platforms there is still reason to have a deeper look into image compression.
+        Especially lossy image compression is always a trade-off between file-size and image quality, where high quality is usually preferred for storage.
+        Beside classical image compression, e.g. JPEG, there is also ongoing development to use video codecs to compress images.
+        We analyze four different video codecs, namely AV1, H.264, H.265 and VP9, in comparison with JPEG.
+        Our evaluation considers classical image quality metrics, e.g. PSNR, and also a modern subjective quality metric, i.e. Netflix's VMAF.
+        We are able to show that modern video codecs can outperform classical JPEG compression both in terms of quality and file-size.
+        For this we used 1133 uncompressed images and applied different encoding settings and estimated image quality.
+
+        <h2>Authors</h2>
+        <p><a href="https://github.com/stg7">Steve Göring</a> and Alexander Raake </p>
+        <p><a href="https://www.tu-ilmenau.de/en/audio-visual-technology/">Audiovisual Technology Group; Technische Universität Ilmenau, Germany</a></p>
+        <p>Email: [steve.goering, alexander.raake]@tu-ilmenau.de</p>
+
+        Please refer to our publication if you use images of this dataset or use our developed code.
+        <pre>
+@inproceedings{goering2019Intra,
+  title={Evaluation of Intra-coding based image compression},
+  author={Steve G{\"{o}}ring and Alexander Raake},
+  booktitle={Visual Information Processing (EUVIP), 2019 8th European Workshop on},
+  pages={1--6},
+  year={2019},
+  organization={IEEE},
+}
+</pre>
+      </div>
+    </section>
+
+    <section id="main-content" class="container">
+      <div class="jumbotron">
+
+        <h1>Visual Exploration of one example image</h1>
+
+      </div>
+    </section>
+
+    <section id="main-content" class="container">
+      <div class="jumbotron">
+        <h1>Overview of the used Database</h1>
+        <a href="#dataset"></a>
+        The full uncompressed dataset is available via <a href="https://zenodo.org/record/3459357#.XY4DGB9fhhE"> zenodo</a>.
+
+        <nav aria-label="pagination" class="row justify-content-md-center">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#dataset" aria-label="Previous" onclick="prev_page()">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="pagination" id="pages">
+          </ul>
+          <ul class="pagination" id="pages">
+            <li class="page-item">
+              <a class="page-link" href="#dataset" aria-label="Next" onclick="next_page()">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="row justify-content-md-center" id="preview">
+
+        </div>
+
+      </div>
+    </section>
+
+<script src="./previews.js"></script>
+<script type="text/javascript">
+
+console.log(previews);
+var page = 1;
+var ELEMENTS_PER_PAGE = 100;
+
+var max_page = parseInt(previews.length / ELEMENTS_PER_PAGE) + 1;
+
+function parseHTML(html) {
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    return t.content.cloneNode(true);
+}
+
+function to_page(p) {
+    if (p > max_page) {
+        p = max_page;
+    }
+    if (p < 1) {
+        p = 1;
+    }
+    page = p;
+    update_images(page);
+}
+
+function next_page() {
+    page += 1;
+    to_page(page);
+}
+
+function prev_page() {
+    page -= 1;
+    to_page(page);
+}
+
+function delete_childs(node) {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+}
+
+function update_page(page) {
+    //document.getElementById("page").innerHTML = page;
+    var pages = document.getElementById("pages");
+    delete_childs(pages);
+    var start = Math.min(max_page - 5, Math.max(1, page - 2));
+    var end = Math.max(5, Math.min(page + 2, max_page - 1));
+
+    for (var i = start; i <= end ; i ++) {
+        var h = '<li class="page-item"><a class="page-link" href="#dataset" onclick="to_page(' + i + ')" >' + i + '</a></li>'
+        if (page == i) {
+            h = '<li class="page-item active"><a class="page-link" href="#dataset" onclick="to_page(' + i + ')">' + i + '<span class="sr-only">(current)</span></a></li>'
+        }
+        var page_item = parseHTML(h)
+        pages.appendChild(page_item);
+    }
+
+}
+
+function update_images(page) {
+    console.log(page);
+    delete_childs(document.getElementById("preview"));
+    update_page(page);
+
+    var start = page * ELEMENTS_PER_PAGE;
+    var end = Math.min(previews.length, (page + 1) * ELEMENTS_PER_PAGE);
+
+    previews.slice(start, end).forEach(function(img) {
+        var image = parseHTML("<div class=\"col-md-1 imageprev \" > <img src=\"" + img + "\"  style=\"width:100%;\"/></div>" );
+        document.getElementById("preview").appendChild(image);
+    });
+}
+
+update_images(page);
+</script>
+
+
+
+
+
+</body>
+</html>
