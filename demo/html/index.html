@@ -22,6 +22,9 @@
     h2 {
         margin-top: 50px;
     }
+    .jumbotron {
+        background: white;
+    }
   </style>
 </head>
 
@@ -79,13 +82,15 @@
         <p>You can find the full implementation of the encoding experiment that is descirbed in the paper in the <a href="https://github.com/Telecommunication-Telemedia-Assessment/image_compression">github repository</a>.</p>
 
         In the following cropped images, different low quality settings are shown for several codecs (AV1, H.264, H.265, VP9, JPEG), filesizes and PSNR values refer to the full images.
+        <br>
+        <br>
         <div class="row justify-content-md-center" id="example">
-          <div class="col-md-2 imageexample" > Source (83 MB), <br><br> <img src="example/ref.jpg" alt="reference image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > AV1 (11 KB), PSNR=45.87<img src="example/av1.jpg" alt="av1 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > H.264 (19 KB), PSNR=39.74<img src="example/h264.jpg" alt="h264 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > H.265 (17 KB), PSNR=42.72<img src="example/h265.jpg" alt="h265 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > VP9 (15 KB), PSNR=45.36 <img src="example/vp9.jpg" alt="vp9 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > JPEG (110 KB), PSNR=32.26<img src="example/jpg.jpg" alt="jpg image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" ><img src="example/ref.jpg" alt="reference image" style="width:100%;"/>Source (83 MB), <br><br> </div>
+          <div class="col-md-2 imageexample" ><img src="example/av1.jpg" alt="av1 image" style="width:100%;"/>AV1 (11 KB), PSNR=45.87</div>
+          <div class="col-md-2 imageexample" ><img src="example/h264.jpg" alt="h264 image" style="width:100%;"/>H.264 (19 KB), PSNR=39.74</div>
+          <div class="col-md-2 imageexample" ><img src="example/h265.jpg" alt="h265 image" style="width:100%;"/>H.265 (17 KB), PSNR=42.72</div>
+          <div class="col-md-2 imageexample" ><img src="example/vp9.jpg" alt="vp9 image" style="width:100%;"/>VP9 (15 KB), PSNR=45.36</div>
+          <div class="col-md-2 imageexample" ><img src="example/jpg.jpg" alt="jpg image" style="width:100%;"/>JPEG (110 KB), PSNR=32.26</div>
         </div>
         <h2>Abstract</h2>
         Considering modern cameras, increasing image resolutions and thousands of images uploaded to sharing platforms there is still reason to have a deeper look into image compression.
