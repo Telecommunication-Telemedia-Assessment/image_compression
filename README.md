@@ -30,7 +30,8 @@ On Ubuntu you can just run `./prepare.sh` to install all requirements.
 
 ## Dataset
 The full dataset is available on https://zenodo.org/record/3459357#.XY4DGB9fhhE.
-It can be automatically downloaded and extracted via "./download.sh".
+It can be automatically downloaded and extracted via `./download.sh`.
+*Important* the extracted dataset will be about 35GB in filesize.
 
 
 ## Encoding images
