@@ -33,9 +33,7 @@ ffmpeg -y -r 1 -start_number 0  -i "$1" \
 
 ref=ref/"$bn".mkv
 
-
-
-av1_encoding() { # 63
+av1_encoding() {
     for ((crf=0;crf<=63;crf++)); do
         dis="av1/$bn"_av1_"$crf.mkv"
         ffmpeg -y -i "$ref" -strict -2 \
@@ -106,9 +104,9 @@ jpg_encoding() {
     done
 }
 
-#echo "encode av1"
-#mkdir -p av1
-#av1_encoding
+echo "encode av1"
+mkdir -p av1
+av1_encoding
 
 echo "encode h265"
 mkdir -p h265
