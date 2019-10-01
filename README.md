@@ -45,12 +45,12 @@ To encode a given image (or all images of the dataset) you need to run:
 
 If you want to perform the encoding for all images of a larger dataset please use GNU parallel or similar tools.
 
-Encoding of one high resolution image will take some time.
+Encoding of a single high resolution image will take some time.
 
 ### Acknowledgements
 
 If you use this software in your research, please include a link to the repository and reference our paper.
 
 ## Licence
-Except ffmpeg and other thirdparty software that have their own licence, the remaining software follows the:
+Except ffmpeg and other thirdparty software that have their own individual licences, the remaining software follows the:
 GNU General Public License v3. See LICENSE file in this repository.
