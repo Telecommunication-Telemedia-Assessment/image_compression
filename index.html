@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Evaluation of Intra-coding based image compression -- demo</title>
+  <title>Evaluation of Intra-coding based image compression</title>
 
   <script src="./plotly-latest.min.js"></script>
   <script src="./jquery-3.3.1.slim.min.js"></script>
   <script src="./bootstrap.min.js"></script>
   <script src="./popper.min.js"></script>
+
+  <script src="./jquery.event.move.js" type="text/javascript"></script>
+  <script src="./jquery.twentytwenty.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="./twentytwenty.css" type="text/css" media="screen" />
 
   <!-- Bootstrap core CSS -->
   <link href="bootstrap.min.css" rel="stylesheet">
@@ -20,7 +24,10 @@
     }
 
     h2 {
-        margin-top: 50px;
+        margin-top: 20px;
+    }
+    .jumbotron {
+        background: white;
     }
   </style>
 </head>
@@ -34,58 +41,44 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <!--
-            <li class="nav-item active">
-                <a class="nav-link" href="#" onclick="play_pause_video()" id="control_button">pause</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="show_page('main')" >demo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" onclick="$('#stats').toggle();" >stats</a>
+              <a class="nav-link" href="#" onclick="show_page('visual_example')" >example</a>
             </li>
-            -->
             <li class="nav-item">
-              <a class="nav-link" href="#"  data-toggle="modal" data-target="#myModal">about</a>
+              <a class="nav-link" href="#" onclick="show_page('dataset')" >dataset</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/Telecommunication-Telemedia-Assessment/image_compression" target="_blank">
+<svg height="128" width="128" style="height:1.5em" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" fill="white" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">About - this demo</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
 
-            <p>Developed at TU Ilmenau 2019.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
 
     <!--Main content of page-->
-    <section id="main-content" class="container">
+    <section id="main" class="container">
       <div class="jumbotron">
         <h1>About</h1>
         <p>This demo gives an overview of the evaluation of different intra-frame based video encoding algorithms and their performance in case of image compression presented in a paper at EUVIP 2019 (Roma; Italy).</p>
         <p>You can find the full implementation of the encoding experiment that is descirbed in the paper in the <a href="https://github.com/Telecommunication-Telemedia-Assessment/image_compression">github repository</a>.</p>
 
         In the following cropped images, different low quality settings are shown for several codecs (AV1, H.264, H.265, VP9, JPEG), filesizes and PSNR values refer to the full images.
+        <br>
+        <br>
         <div class="row justify-content-md-center" id="example">
-          <div class="col-md-2 imageexample" > Source (83 MB), <br><br> <img src="example/ref.jpg" alt="reference image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > AV1 (11 KB), PSNR=45.87<img src="example/av1.jpg" alt="av1 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > H.264 (19 KB), PSNR=39.74<img src="example/h264.jpg" alt="h264 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > H.265 (17 KB), PSNR=42.72<img src="example/h265.jpg" alt="h265 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > VP9 (15 KB), PSNR=45.36 <img src="example/vp9.jpg" alt="vp9 image" style="width:100%;"/></div>
-          <div class="col-md-2 imageexample" > JPEG (110 KB), PSNR=32.26<img src="example/jpg.jpg" alt="jpg image" style="width:100%;"/></div>
+          <div class="col-md-2 imageexample" ><img src="example/ref.jpg" alt="reference image" style="width:100%;"/>Source (83 MB), <br><br> </div>
+          <div class="col-md-2 imageexample" ><img src="example/av1.jpg" alt="av1 image" style="width:100%;"/>AV1 (11 KB), PSNR=45.87</div>
+          <div class="col-md-2 imageexample" ><img src="example/h264.jpg" alt="h264 image" style="width:100%;"/>H.264 (19 KB), PSNR=39.74</div>
+          <div class="col-md-2 imageexample" ><img src="example/h265.jpg" alt="h265 image" style="width:100%;"/>H.265 (17 KB), PSNR=42.72</div>
+          <div class="col-md-2 imageexample" ><img src="example/vp9.jpg" alt="vp9 image" style="width:100%;"/>VP9 (15 KB), PSNR=45.36</div>
+          <div class="col-md-2 imageexample" ><img src="example/jpg.jpg" alt="jpg image" style="width:100%;"/>JPEG (110 KB), PSNR=32.26</div>
         </div>
         <h2>Abstract</h2>
         Considering modern cameras, increasing image resolutions and thousands of images uploaded to sharing platforms there is still reason to have a deeper look into image compression.
@@ -115,20 +108,50 @@
       </div>
     </section>
 
-    <section id="main-content" class="container">
+    <section id="visual_example" class="container">
       <div class="jumbotron">
 
         <h1>Visual Exploration of one example image</h1>
+        <div class="form-group row">
+            <div class="form-group col-md-6">
+             <label for="customRange3">left (av1) [0,63]: <text id="av1_label"> </text></label>
+              <input type="range" class="custom-range" min="0" max="63" step="1" value=63 id="av1" oninput="update_av1(this.value)" >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="customRange3">right (jpeg) [1,100]: <text id="jpeg_label"> </text></label>
+              <input type="range" class="custom-range" min="1" max="100" step="1" value=1 id="jpeg" oninput="update_jpg(this.value)"  >
+            </div>
+        </div>
+        <div class="row">
+          <pre class="col-md-6" id="stats_av1">
+          </pre>
+          <pre class="col-md-6" id="stats_jpeg">
+          </pre>
+
+        </div>
+
+        <div id="preview_slider">
+          <!-- The before image is first -->
+          <video style="position: absolute; top:0px; width: 100%">
+            <source src="visual_example/av1/hJV2gUr6_av1_0.mkv" type="video/webm" id="av1_container" >
+            Your browser does not support the video tag.
+          </video>
+          <img id="jpeg_container" src="visual_example/jpg/hJV2gUr6_jpg_1.jpg"  style="position: absolute; top:0px; width: 100%" />
+        </div>
+
 
       </div>
     </section>
 
-    <section id="main-content" class="container">
+    <section id="dataset" class="container">
       <div class="jumbotron">
         <h1>Overview of the used Database</h1>
         <a href="#dataset"></a>
         The full uncompressed dataset is available via <a href="https://zenodo.org/record/3459357#.XY4DGB9fhhE"> zenodo</a>.
-
+        <div class="row justify-content-md-center" id="preview">
+          <!-- images are added here -->
+        </div>
+        <br>
         <nav aria-label="pagination" class="row justify-content-md-center">
           <ul class="pagination">
             <li class="page-item">
@@ -149,10 +172,6 @@
             </li>
           </ul>
         </nav>
-
-        <div class="row justify-content-md-center" id="preview">
-
-        </div>
 
       </div>
     </section>
@@ -231,7 +250,68 @@ function update_images(page) {
     });
 }
 
+function hide_all() {
+    document.getElementById("main").style.display = 'none';
+    document.getElementById("visual_example").style.display = 'none';
+    document.getElementById("dataset").style.display = 'none';
+
+}
+
+function show_page(pageid) {
+  hide_all();
+  document.getElementById(pageid).style.display = 'block';
+}
+
+
+hide_all();
+//show_page("main");
+show_page("visual_example")
 update_images(page);
+
+
+$(function(){
+  $("#preview_slider").twentytwenty();
+});
+
+var base_image = "hJV2gUr6";
+
+function update_jpg(value) {
+  document.getElementById("jpeg_label").innerHTML = value;
+  document.getElementById("jpeg_container").src='visual_example/jpg/hJV2gUr6_jpg_' + value +'.jpg';
+  var report_file = 'visual_example/reports/jpg/hJV2gUr6_jpg_' + value + '.json';
+  fetch(report_file)
+    .then(response => response.json())
+    .then(function(json) {
+      console.log(json);
+      var info = "vmaf=" + json["frames"][0]["metrics"]["vmaf"] + "\n";
+      info += "psnr=" + json["frames"][0]["metrics"]["psnr"] + "\n";
+      info += "ssim=" + json["frames"][0]["metrics"]["ssim"] + "\n";
+      document.getElementById("stats_jpeg").innerHTML=info
+    }
+  );
+}
+
+
+function update_av1(value) {
+  document.getElementById("av1_label").innerHTML = value;
+  document.getElementById("av1_container").src='visual_example/av1/hJV2gUr6_av1_' + value + '.mkv';
+  var report_file = 'visual_example/reports/av1/hJV2gUr6_av1_' + value + '.json';
+  fetch(report_file)
+    .then(response => response.json())
+    .then(function(json) {
+      console.log(json);
+      var info = "vmaf=" + json["frames"][0]["metrics"]["vmaf"] + "\n";
+      info += "psnr=" + json["frames"][0]["metrics"]["psnr"] + "\n";
+      info += "ssim=" + json["frames"][0]["metrics"]["ssim"] + "\n";
+      document.getElementById("stats_av1").innerHTML=info
+    }
+  );
+
+}
+
+update_av1(63);
+update_jpg(1);
+
 </script>
 
 
