@@ -25,6 +25,7 @@ The code is only tested on Ubuntu 18.04, to perform the same evaluation that is 
 * ffmpeg 4.1.3 (provided in the repository as tar.gz)
 * convert tool (part of imagemagick, install via `sudo apt install imagemagick`)
 * wget to download the dataset
+* jupyter if you want to run the analysis notebook
 
 On Ubuntu you can just run `./prepare.sh` to install all requirements.
 
@@ -46,6 +47,9 @@ To encode a given image (or all images of the dataset) you need to run:
 If you want to perform the encoding for all images of a larger dataset please use GNU parallel or similar tools.
 
 Encoding of a single high resolution image will take some time.
+
+### Analysis
+To reproduce all plots of the paper you can check the `quality_analysis.ipynb` jupyter notebook.
 
 ### Acknowledgements
 
