@@ -5,7 +5,7 @@ A short overview of the Dataset and demo of the compression performance of diffe
 
 Main goal of the conducted evaluation is to compare the suitability of different intra frame algorithms of current state of the art video codecs with jpeg compression.
 
-If you use the dataset or the provided code please cite the following paper:
+If you use the dataset or the provided code please cite the following [paper](https://ieeexplore.ieee.org/document/8946162):
 ```
 @inproceedings{goering2019Intra,
   title={Evaluation of Intra-coding based image compression},
