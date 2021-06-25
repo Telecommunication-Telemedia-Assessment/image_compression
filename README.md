@@ -1,7 +1,7 @@
 # [Evaluation of Intra-coding based Image Compression](https://telecommunication-telemedia-assessment.github.io/image_compression/)
 This repository contains the code to reproduce the evaluation experiments of the paper "Evaluation of Intra-coding based image compression" by [Steve Göring](https://stg7.github.io/) and Alexander Raake; [Audiovisual Technology Group; Technische Universität Ilmenau, Germany](https://www.tu-ilmenau.de/en/audio-visual-technology/).
 
-A short overview of the Dataset and demo of the compression performance of different algorithms are available at [Demo](https://telecommunication-telemedia-assessment.github.io//image_compression)
+A short overview of the Dataset and demo of the compression performance of different algorithms are available at [Demo](https://telecommunication-telemedia-assessment.github.io/image_compression/)
 
 Main goal of the conducted evaluation is to compare the suitability of different intra frame algorithms of current state of the art video codecs with jpeg compression.
 
