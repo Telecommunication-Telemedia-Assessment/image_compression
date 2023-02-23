@@ -14,7 +14,6 @@ If you use the dataset or the provided code please cite the following [paper](ht
   pages={1--6},
   year={2019},
   organization={IEEE},
-
 }
 ```
 
