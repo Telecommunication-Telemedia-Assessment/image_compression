@@ -21,7 +21,7 @@ If you use the dataset or the provided code please cite the following [paper](ht
 
 The code is only tested on Ubuntu 18.04, to perform the same evaluation that is presented in the paper you need
 
-* ffmpeg 4.1.3 (provided in the repository as `tar.gz`)
+* ffmpeg 4.1.3 (provided in the repository as `ffmpeg_4.1.3.tar.gz`)
 * convert tool (part of imagemagick, install via `sudo apt install imagemagick`)
 * wget to download the dataset
 * jupyter if you want to run the analysis notebook
