@@ -57,4 +57,4 @@ If you use this software in your research, please include a link to the reposito
 
 ## Licence
 Except ffmpeg and other thirdparty software that have their own individual licences, the remaining software follows the:
-GNU General Public License v3. See LICENSE file in this repository.
+GNU General Public License v3. See [LICENSE](LICENSE) file in this repository.
